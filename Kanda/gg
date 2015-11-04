@@ -1,0 +1,40 @@
+parcel contains:
+startPos : (89, 22) endPos : (39, 57) Time = 0 State : Not Delivered
+startPos : (75, 83) endPos : (95, 93) Time = 0 State : Not Delivered
+startPos : (87, 53) endPos : (60, 48) Time = 0 State : Not Delivered
+startPos : (24, 18) endPos : (45, 3) Time = 0 State : Not Delivered
+startPos : (33, 70) endPos : (52, 17) Time = 0 State : Not Delivered
+startPos : (60, 72) endPos : (68, 77) Time = 0 State : Not Delivered
+startPos : (19, 49) endPos : (35, 93) Time = 0 State : Not Delivered
+startPos : (55, 61) endPos : (58, 0) Time = 0 State : Not Delivered
+startPos : (80, 72) endPos : (56, 14) Time = 0 State : Not Delivered
+startPos : (41, 98) endPos : (39, 16) Time = 0 State : Not Delivered
+Riders initial position : ( 89, 17 )
+startPos : (89, 22) endPos : (39, 57) Time = 0 State : Not Delivered
+3묶음배송!
+3묶음배송!
+3묶음배송!
+-------- Rider1 Result ---------
+startPos : (89, 22) endPos : (39, 57) Time = 0 State : Delivered Time : 96
+startPos : (33, 70) endPos : (52, 17) Time = 0 State : Delivered Time : 139
+startPos : (55, 61) endPos : (58, 0) Time = 0 State : Delivered Time : 158
+startPos : (24, 18) endPos : (45, 3) Time = 0 State : Delivered Time : 223
+startPos : (19, 49) endPos : (35, 93) Time = 0 State : Delivered Time : 406
+startPos : (87, 53) endPos : (60, 48) Time = 0 State : Delivered Time : 317
+startPos : (41, 98) endPos : (39, 16) Time = 0 State : Delivered Time : 552
+startPos : (60, 72) endPos : (68, 77) Time = 0 State : Delivered Time : 457
+startPos : (80, 72) endPos : (56, 14) Time = 0 State : Delivered Time : 534
+startPos : (75, 83) endPos : (95, 93) Time = 0 State : Delivered Time : 652
+Rider1 Pos : 95, 93
+-------- Rider2 Result ---------
+startPos : (89, 22) endPos : (39, 57) Time = 0 State : Delivered Time : 67
+startPos : (33, 70) endPos : (52, 17) Time = 0 State : Delivered Time : 139
+startPos : (24, 18) endPos : (45, 3) Time = 0 State : Delivered Time : 194
+startPos : (19, 49) endPos : (35, 93) Time = 0 State : Delivered Time : 294
+startPos : (41, 98) endPos : (39, 16) Time = 0 State : Delivered Time : 385
+startPos : (55, 61) endPos : (58, 0) Time = 0 State : Delivered Time : 495
+startPos : (87, 53) endPos : (60, 48) Time = 0 State : Delivered Time : 584
+startPos : (60, 72) endPos : (68, 77) Time = 0 State : Delivered Time : 619
+startPos : (75, 83) endPos : (95, 93) Time = 0 State : Delivered Time : 652
+startPos : (80, 72) endPos : (56, 14) Time = 0 State : Delivered Time : 741
+Rider2 Pos : 56, 14

@@ -1,0 +1,4 @@
+rm -f testApp
+rm -f simple_test
+g++ -lpthread -O2 -g -Wall -o testApp testApp.cpp thread_pool.cpp seq_thread_pool.cpp
+g++ -lpthread -O2 -g -Wall -o simple_test simple_test.cpp thread_pool.cpp seq_thread_pool.cpp

@@ -1,0 +1,49 @@
+ULONG nonBlk = TRUE;
+struct  timeval     timevalue;
+
+ioctlsocket( sockhd, FIONBIO, &nonBlk );
+
+connect ( sockhd, (struct sockaddr *)&remote_addr, sizeof(remote_addr));
+
+FD_ZERO( &fdset );
+FD_SET( sockhd, &fdset );
+timevalue.tv_sec = 4;
+timevalue.tv_usec = 0;
+
+::select( sockhd+1, NULL, &fdset, NULL, &timevalue );
+if ( !FD_ISSET( sockhd, &fdset ) )
+{
+    MessageBox( NULL, "connect() Error", "Error", MB_OK );
+    closesocket( sockhd );
+    WSACleanup();
+    sockhd = NULL;
+    return;
+}
+
+우선 ioctlsocket() 함수를 사용해서 sockhd 라는 소켓을 Nonblocking 소켓으로 만듭니다.
+그리고 connect () 함수를 호출 한 후에
+timeval 구조체에 4초를 넣어주고 Select() 함수를 이용해서 4초를 기다리고
+if 문에서 Write 할 부분에 set 이 되어있지 않으면 연결되지 않은 것으로 판단하고 에러를 리턴해줍니다.
+
+
+출처 : 데브피아
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+리눅스 C로 소켓 프로그래밍 하는 서버와 클라이언트간의 응답을 기다리고자 무한정 기다리는 상태를 종종 보곤한다..
+
+그럴때마다 가슴이 찢어진다.. 이제 Socket에 Timeout을 설정해서 이와 같은 어이없는 상황에서 벗어나보자..
+
+사용하는 함수는 setsockopt()을 사용한다. Socket 여러가지 옵션을 설정해 줄수 있는 함수인데...
+
+사실 기본적인 Socket프로그래밍이 이렇게 까지 옵션이 다양할 줄 몰랐다..
+
+이제 본격적으로 얘기 하면,, 아래 함수를 Bind 후에 한번 살짝 호출해 주는것만으로도 Timeout 설정이 가능하다..
+
+아래의 예제는 수신시의 Timeout 값을 설정하는 예제이며, 송신시의 옵션은 SO_SNDTIMEO 이다.
+
+struct timeval tv;
+tv.tv_sec = 30;  /* 30 Secs Timeout */
+setsockopt(sockid, SOL_SOCKET, SO_RCVTIMEO,(struct timeval *)&tv,sizeof(struct timeval));
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-

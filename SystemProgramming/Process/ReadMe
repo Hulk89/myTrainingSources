@@ -1,0 +1,13 @@
+
+프로세스 실행
+
+#include <unistd.h>
+int execl(const char *path, const char *arg, ...);
+
+주의사항
+        arg의 마지막은 꼭 NULL이 들어가야한다.
+        
+        execl 함수는 프로그램을 실행시켜서 새로운 프로세스를 실행하면,
+        현재의 프로세스 이미지를 덮어써 버린다 -*_*_*_*_*_*_*_*_*_*
+
+

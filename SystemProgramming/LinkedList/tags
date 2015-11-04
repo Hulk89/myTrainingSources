@@ -1,0 +1,23 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+LinkedList	ll.h	/^typedef struct LinkedList$/;"	s
+LinkedList	ll.h	/^} LinkedList;$/;"	t	typeref:struct:LinkedList
+Node	ll.h	/^typedef struct Node$/;"	s
+Node	ll.h	/^} Node;$/;"	t	typeref:struct:Node
+deleteAll	ll.c	/^void deleteAll ( LinkedList* root )$/;"	f
+deleteAtIndex	ll.c	/^int deleteAtIndex ( LinkedList* root, int idx )$/;"	f
+deleteRecursive	ll.c	/^void deleteRecursive ( Node* aNode )$/;"	f
+end	ll.c	/^struct Node* end ( struct LinkedList* root )$/;"	f
+findObj	ll.c	/^struct Node* findObj ( struct LinkedList* root , void* aObj )$/;"	f
+head	ll.h	/^    struct Node* head;$/;"	m	struct:LinkedList	typeref:struct:LinkedList::Node
+insertAfterIndex	ll.c	/^int insertAfterIndex ( LinkedList* root, int idx, void* aObj )$/;"	f
+insertAtFirst	ll.c	/^int insertAtFirst ( LinkedList* root, void* aObj )$/;"	f
+insertObj	ll.c	/^int insertObj ( struct LinkedList* root, void* aObj )$/;"	f
+mObj	ll.h	/^    void* mObj;$/;"	m	struct:Node
+main	main.c	/^int main(int argc, char* argv[] )$/;"	f
+next	ll.h	/^    struct Node* next;$/;"	m	struct:Node	typeref:struct:Node::Node
+printLinkedList	ll.c	/^void printLinkedList ( struct LinkedList* root )$/;"	f

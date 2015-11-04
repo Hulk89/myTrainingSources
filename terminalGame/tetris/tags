@@ -1,0 +1,51 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+HEIGHT	/Users/triptych/Documents/terminalGame/tetris/./src/ht.h	/^#define HEIGHT /;"	d
+I	/Users/triptych/Documents/terminalGame/tetris/./src/ht.h	/^    I = 0,$/;"	e	enum:__anon1
+J	/Users/triptych/Documents/terminalGame/tetris/./src/ht.h	/^    J,$/;"	e	enum:__anon1
+L	/Users/triptych/Documents/terminalGame/tetris/./src/ht.h	/^    L,$/;"	e	enum:__anon1
+O	/Users/triptych/Documents/terminalGame/tetris/./src/ht.h	/^    O,$/;"	e	enum:__anon1
+S	/Users/triptych/Documents/terminalGame/tetris/./src/ht.h	/^    S,$/;"	e	enum:__anon1
+T	/Users/triptych/Documents/terminalGame/tetris/./src/ht.h	/^    T,$/;"	e	enum:__anon1
+WIDTH	/Users/triptych/Documents/terminalGame/tetris/./src/ht.h	/^#define WIDTH /;"	d
+Z	/Users/triptych/Documents/terminalGame/tetris/./src/ht.h	/^    Z$/;"	e	enum:__anon1
+_HTBLOCK_H_	/Users/triptych/Documents/terminalGame/tetris/./src/htBlock.h	/^#define _HTBLOCK_H_$/;"	d
+_HTKEY_H_	/Users/triptych/Documents/terminalGame/tetris/./src/htKey.h	/^#define _HTKEY_H_$/;"	d
+_HTUPDATE_H_	/Users/triptych/Documents/terminalGame/tetris/./src/htUpdate.h	/^#define _HTUPDATE_H_$/;"	d
+_HT_DRAW_H_	/Users/triptych/Documents/terminalGame/tetris/./src/htDraw.h	/^#define _HT_DRAW_H_$/;"	d
+_HT_H_	/Users/triptych/Documents/terminalGame/tetris/./src/ht.h	/^#define _HT_H_$/;"	d
+blockShape	/Users/triptych/Documents/terminalGame/tetris/./src/ht.h	/^} blockShape;$/;"	t	typeref:enum:__anon1
+copyBuffer	/Users/triptych/Documents/terminalGame/tetris/./src/htUpdate.c	/^void copyBuffer()$/;"	f
+copyTile	/Users/triptych/Documents/terminalGame/tetris/./src/htUpdate.c	/^void copyTile( htBlock* aBlock )$/;"	f
+draw	/Users/triptych/Documents/terminalGame/tetris/./src/htDraw.c	/^void draw()$/;"	f
+eventHandling	/Users/triptych/Documents/terminalGame/tetris/./src/htKey.c	/^void eventHandling( char Key, htBlock *aBlock )$/;"	f
+gBackground	/Users/triptych/Documents/terminalGame/tetris/./src/htMain.c	/^char    gBackground[HEIGHT][WIDTH];$/;"	v
+gBlock	/Users/triptych/Documents/terminalGame/tetris/./src/htMain.c	/^htBlock gBlock;$/;"	v
+gBlockMap	/Users/triptych/Documents/terminalGame/tetris/./src/htBlock.c	/^int gBlockMap[7][4][8] = {$/;"	v
+gBlocks	/Users/triptych/Documents/terminalGame/tetris/./src/htDraw.c	/^char gBlocks[3] = { '[',' ',']' };$/;"	v
+gEmpty	/Users/triptych/Documents/terminalGame/tetris/./src/htDraw.c	/^char gEmpty[3]  = { ' ','*',' ' };$/;"	v
+gForeground	/Users/triptych/Documents/terminalGame/tetris/./src/htMain.c	/^char    gForeground[HEIGHT][WIDTH];$/;"	v
+gQuit	/Users/triptych/Documents/terminalGame/tetris/./src/htMain.c	/^int     gQuit;$/;"	v
+gWall	/Users/triptych/Documents/terminalGame/tetris/./src/htDraw.c	/^char gWall[3]   = { 'M','M','M' };$/;"	v
+htBlock	/Users/triptych/Documents/terminalGame/tetris/./src/ht.h	/^typedef struct htBlock$/;"	s
+htBlock	/Users/triptych/Documents/terminalGame/tetris/./src/ht.h	/^} htBlock;$/;"	t	typeref:struct:htBlock
+htCollisionDetection	/Users/triptych/Documents/terminalGame/tetris/./src/htBlock.c	/^int htCollisionDetection( htBlock *aBlock, htPos *aRelFill )$/;"	f
+htInitBlock	/Users/triptych/Documents/terminalGame/tetris/./src/htBlock.c	/^void htInitBlock( htBlock *aBlock, blockShape aShape )$/;"	f
+htPos	/Users/triptych/Documents/terminalGame/tetris/./src/ht.h	/^typedef struct htPos$/;"	s
+htPos	/Users/triptych/Documents/terminalGame/tetris/./src/ht.h	/^} htPos;$/;"	t	typeref:struct:htPos
+htRotation	/Users/triptych/Documents/terminalGame/tetris/./src/htBlock.c	/^void htRotation( htBlock *aBlock, int aRotation )$/;"	f
+mFill	/Users/triptych/Documents/terminalGame/tetris/./src/ht.h	/^    htPos           mFill[4];$/;"	m	struct:htBlock
+mIsEnded	/Users/triptych/Documents/terminalGame/tetris/./src/ht.h	/^    int             mIsEnded;$/;"	m	struct:htBlock
+mMtx	/Users/triptych/Documents/terminalGame/tetris/./src/ht.h	/^    pthread_mutex_t mMtx;$/;"	m	struct:htBlock
+mPosition	/Users/triptych/Documents/terminalGame/tetris/./src/ht.h	/^    htPos           mPosition;$/;"	m	struct:htBlock
+mRotation	/Users/triptych/Documents/terminalGame/tetris/./src/ht.h	/^    int             mRotation;$/;"	m	struct:htBlock
+mShape	/Users/triptych/Documents/terminalGame/tetris/./src/ht.h	/^    blockShape      mShape;$/;"	m	struct:htBlock
+main	/Users/triptych/Documents/terminalGame/tetris/./src/htMain.c	/^int main()$/;"	f
+mygetch	/Users/triptych/Documents/terminalGame/tetris/./src/htKey.c	/^int mygetch ( void ) $/;"	f
+updateThr	/Users/triptych/Documents/terminalGame/tetris/./src/htUpdate.c	/^void* updateThr( void * ptr )$/;"	f
+x	/Users/triptych/Documents/terminalGame/tetris/./src/ht.h	/^    int x;$/;"	m	struct:htPos
+y	/Users/triptych/Documents/terminalGame/tetris/./src/ht.h	/^    int y;$/;"	m	struct:htPos

@@ -1,0 +1,110 @@
+File I/O
+
+유닉스 시스템은 장치도 파일로 취급!
+예시 > 
+    하드디스크 : /dev/hda1,2,... and so on...
+    사운드카드 : /dev/dsp
+    프린터     : /dev/lp
+    CD-ROM     : /dev/cdrom
+
+따라서 파일로 접근하여 장치를 다루게 되어있다.
+
+ls -al을 쳐보자!
+hyeongseok-ui-MacBook-Air:Signal triptych$ ls -al
+total 112
+drwxr-xr-x  9 triptych  staff   306  5 12 14:48 .
+drwxr-xr-x  4 triptych  staff   136  5 12 14:51 ..
+-rw-r--r--  1 triptych  staff  4728  5 12 14:48 ReadMe
+-rwxr-xr-x  1 triptych  staff  9100  5 12 14:47 sigAct
+-rw-r--r--  1 triptych  staff  1797  5 12 14:47 sigAction.c
+-rwxr-xr-x@ 1 triptych  staff  8896  5  9 13:53 sigint
+-rw-r--r--  1 triptych  staff   375  5  9 13:53 sigint.c
+-rw-r--r--  1 triptych  staff   433  5  9 13:47 signal.c
+-rwxr-xr-x@ 1 triptych  staff  8888  5  9 13:47 signalTest
+
+다양한 종류의 파일
+    d : directory
+    l : link
+    c : device
+    s : socket
+    p : pipei
+
+
+File Open
+
+간단한 파일 오픈도 커널에 요청하는 것!! 커널은 판단 후 결과를 해당 프로세스에 리턴한다.
+    1. 실제 존재하는 파일?
+    2. 없을 경우 새로 생성?
+    3. 파일 쓰기 권한이 있는지?
+
+open systemcall을 이용한 파일열기
+
+==========================================================
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl>
+
+int open( const char *pathname, int flags );
+int open( const char *pathname, int flags, mode_t mode );
+==========================================================
+
+flags : 어떤 방식으로 열 것인지?
+    O_RDONLY - read only
+    O_WRONLY - write only
+    O_RDWR   - read/write
+    O_CREATE - create
+    O_EXCL   - error return when file already exists and user try to create that file
+
+mode : 파일 자체의 권한을 결정
+    S_IRWXU...등등...
+
+여기서 return된 int형 인자는 file descriptor이다.
+
+
+Read systemcall
+============================================================
+#include <unistd.h>
+
+size_t read( int fd, void *buf, size_t count );
+============================================================
+
+예제 => fly.c
+
+
+struct stat {
+    dev_t       st_dev;     /* [XSI] ID of device containing file */
+    ino_t       st_ino;     /* [XSI] File serial number */
+    mode_t      st_mode;    /* [XSI] Mode of file (see below) */
+    nlink_t     st_nlink;   /* [XSI] Number of hard links */
+    uid_t       st_uid;     /* [XSI] User ID of the file */
+    gid_t       st_gid;     /* [XSI] Group ID of the file */
+    dev_t       st_rdev;    /* [XSI] Device ID */
+#if !defined(_POSIX_C_SOURCE) || defined(_DARWIN_C_SOURCE)
+    struct  timespec st_atimespec;  /* time of last access */
+    struct  timespec st_mtimespec;  /* time of last data modification */
+    struct  timespec st_ctimespec;  /* time of last status change */
+#else
+    time_t      st_atime;   /* [XSI] Time of last access */
+    long        st_atimensec;   /* nsec of last access */
+};
+
+S_ISDIR(st_mode);
+S_ISCHR
+S_ISREG
+S_ISFIFO
+S_ISLINK
+S_ISSOCK
+이런 것 쓸 수 있다.
+
+Hard Link & Soft Link
+
+cp의 경우 새로운 iNode를 가진 새 파일이 생성된다.
+ln srcData dstData : iNode를 공유하는 하드링크. 디스크 절약!
+대신 하나의 장치에서만 가능하다. 다른 장치로의 하드링크는 불가능!
+
+이미 지정된 File Descriptor!
+    1. 표준입력 : 0
+    2. 표준출력 : 1
+    3. 표준에러 : 2
+
+dup2( fdDst, fdSrc); - src에서 dst로 redirection을 한다.

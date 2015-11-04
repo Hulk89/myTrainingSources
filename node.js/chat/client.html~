@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title></title>
+<!--
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    -->
+</head>
+<body>
+    <b>Send message</b><p>
+    Message  <input type="text" id="msgbox" style="max-width: 400px;"/>
+    <br>
+    <div id="msgs" 
+	 style="max-width: 600px; margin: 0 auto; max-height: 600px;border: 5px solid red;">hello</div>
+<!-- 
+    <script type="text/javascript">
+        var socket = io.connect('http://abstract3.iptime.org:3000');
+        $("#msgbox").keyup(function(event) {
+            if (event.which == 13) {
+                socket.emit('fromclient',{msg:$('#msgbox').val()});
+                $('#msgbox').val('');
+            }
+        });
+        socket.on('toclient',function(data){
+            console.log(data.msg);
+            $('#msgs').append(data.msg+'<BR>');
+        });
+    </script>
+-->
+</body>
+</html>

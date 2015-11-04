@@ -1,0 +1,8 @@
+.DS_Store
+*.swp
+*.dSYM
+testApp
+*.bak
+testApp_no_class.cpp
+simple_test
+

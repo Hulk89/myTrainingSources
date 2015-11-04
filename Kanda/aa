@@ -1,0 +1,190 @@
+parcel contains:
+startPos : (967, 606) | endPos : (361, 78) | Time = 1 | COST = $9645 | Length = 803.754 |  State : Not Delivered | 
+startPos : (820, 18) | endPos : (53, 214) | Time = 24 | COST = $9499 | Length = 791.647 |  State : Not Delivered | 
+startPos : (509, 982) | endPos : (910, 176) | Time = 25 | COST = $10802 | Length = 900.243 |  State : Not Delivered | 
+startPos : (845, 310) | endPos : (15, 539) | Time = 31 | COST = $10332 | Length = 861.012 |  State : Not Delivered | 
+startPos : (545, 24) | endPos : (382, 491) | Time = 53 | COST = $5935 | Length = 494.629 |  State : Not Delivered | 
+startPos : (168, 764) | endPos : (241, 828) | Time = 56 | COST = $5000 | Length = 97.0824 |  State : Not Delivered | 
+startPos : (998, 539) | endPos : (462, 517) | Time = 70 | COST = $6437 | Length = 536.451 |  State : Not Delivered | 
+startPos : (92, 194) | endPos : (948, 722) | Time = 96 | COST = $12068 | Length = 1005.74 |  State : Not Delivered | 
+startPos : (680, 578) | endPos : (376, 123) | Time = 98 | COST = $6566 | Length = 547.212 |  State : Not Delivered | 
+startPos : (234, 319) | endPos : (358, 170) | Time = 114 | COST = $5000 | Length = 193.848 |  State : Not Delivered | 
+startPos : (125, 359) | endPos : (777, 799) | Time = 122 | COST = $9438 | Length = 786.577 |  State : Not Delivered | 
+startPos : (396, 362) | endPos : (898, 999) | Time = 127 | COST = $9732 | Length = 811.032 |  State : Not Delivered | 
+startPos : (174, 501) | endPos : (871, 42) | Time = 138 | COST = $10014 | Length = 834.56 |  State : Not Delivered | 
+startPos : (430, 930) | endPos : (428, 824) | Time = 148 | COST = $5000 | Length = 106.019 |  State : Not Delivered | 
+startPos : (57, 724) | endPos : (517, 621) | Time = 150 | COST = $5656 | Length = 471.391 |  State : Not Delivered | 
+startPos : (794, 144) | endPos : (481, 136) | Time = 167 | COST = $5000 | Length = 313.102 |  State : Not Delivered | 
+startPos : (722, 501) | endPos : (436, 816) | Time = 181 | COST = $5105 | Length = 425.466 |  State : Not Delivered | 
+startPos : (917, 157) | endPos : (454, 378) | Time = 186 | COST = $6156 | Length = 513.04 |  State : Not Delivered | 
+startPos : (41, 344) | endPos : (941, 370) | Time = 196 | COST = $10804 | Length = 900.375 |  State : Not Delivered | 
+startPos : (0, 968) | endPos : (661, 772) | Time = 230 | COST = $8273 | Length = 689.447 |  State : Not Delivered | 
+startPos : (250, 471) | endPos : (384, 786) | Time = 246 | COST = $5000 | Length = 342.317 |  State : Not Delivered | 
+startPos : (651, 627) | endPos : (876, 610) | Time = 255 | COST = $5000 | Length = 225.641 |  State : Not Delivered | 
+startPos : (484, 110) | endPos : (618, 281) | Time = 257 | COST = $5000 | Length = 217.249 |  State : Not Delivered | 
+startPos : (962, 651) | endPos : (916, 147) | Time = 264 | COST = $6073 | Length = 506.095 |  State : Not Delivered | 
+startPos : (193, 812) | endPos : (256, 308) | Time = 267 | COST = $6095 | Length = 507.922 |  State : Not Delivered | 
+startPos : (558, 672) | endPos : (101, 462) | Time = 285 | COST = $6035 | Length = 502.94 |  State : Not Delivered | 
+startPos : (727, 887) | endPos : (898, 615) | Time = 287 | COST = $5000 | Length = 321.286 |  State : Not Delivered | 
+startPos : (404, 90) | endPos : (781, 285) | Time = 295 | COST = $5093 | Length = 424.446 |  State : Not Delivered | 
+startPos : (473, 995) | endPos : (284, 291) | Time = 296 | COST = $8747 | Length = 728.929 |  State : Not Delivered | 
+startPos : (18, 965) | endPos : (62, 845) | Time = 297 | COST = $5000 | Length = 127.812 |  State : Not Delivered | 
+0-th Riders initial position : ( 732, 95 )
+1-th Riders initial position : ( 639, 903 )
+2-th Riders initial position : ( 797, 758 )
+3-th Riders initial position : ( 141, 234 )
+4-th Riders initial position : ( 982, 363 )
+5-th Riders initial position : ( 123, 943 )
+6-th Riders initial position : ( 496, 164 )
+7-th Riders initial position : ( 324, 154 )
+8-th Riders initial position : ( 623, 285 )
+9-th Riders initial position : ( 9, 738 )
+3묶음배송!
+3묶음배송!
+2묶음배송!
+2묶음배송!
+3묶음배송!
+-------- Rider1 Result ---------
+== 0-th Rider Result ==
+startPos : (967, 606) | endPos : (361, 78) | Time = 1 | COST = $9645 | Length = 803.754 |  State : Delivered |  Start Time : 81 |  End Time : 196
+startPos : (396, 362) | endPos : (898, 999) | Time = 127 | COST = $9732 | Length = 811.032 |  State : Delivered |  Start Time : 237 |  End Time : 364
+startPos : (430, 930) | endPos : (428, 824) | Time = 148 | COST = $5000 | Length = 106.019 |  State : Delivered |  Start Time : 432 |  End Time : 448
+startPos : (722, 501) | endPos : (436, 816) | Time = 181 | COST = $5105 | Length = 425.466 |  State : Delivered |  Start Time : 288 |  End Time : 450
+Total cost : 29482
+Total delivered : 4
+Rider1 Pos : 436, 816
+== 1-th Rider Result ==
+startPos : (820, 18) | endPos : (53, 214) | Time = 24 | COST = $9499 | Length = 791.647 |  State : Delivered |  Start Time : 153 |  End Time : 267
+startPos : (193, 812) | endPos : (256, 308) | Time = 267 | COST = $6095 | Length = 507.922 |  State : Delivered |  Start Time : 355 |  End Time : 428
+startPos : (962, 651) | endPos : (916, 147) | Time = 264 | COST = $6073 | Length = 506.095 |  State : Not Delivered | 
+Total cost : 15594
+Total delivered : 2
+Rider1 Pos : 703.035, 525.186
+== 2-th Rider Result ==
+startPos : (509, 982) | endPos : (910, 176) | Time = 25 | COST = $10802 | Length = 900.243 |  State : Delivered |  Start Time : 77 |  End Time : 206
+startPos : (0, 968) | endPos : (661, 772) | Time = 230 | COST = $8273 | Length = 689.447 |  State : Not Delivered | 
+Total cost : 10802
+Total delivered : 1
+Rider1 Pos : 650.984, 774.97
+== 3-th Rider Result ==
+startPos : (845, 310) | endPos : (15, 539) | Time = 31 | COST = $10332 | Length = 861.012 |  State : Delivered |  Start Time : 132 |  End Time : 256
+startPos : (484, 110) | endPos : (618, 281) | Time = 257 | COST = $5000 | Length = 217.249 |  State : Delivered |  Start Time : 347 |  End Time : 379
+Total cost : 15332
+Total delivered : 2
+Rider1 Pos : 618, 281
+== 4-th Rider Result ==
+startPos : (545, 24) | endPos : (382, 491) | Time = 53 | COST = $5935 | Length = 494.629 |  State : Delivered |  Start Time : 132 |  End Time : 203
+startPos : (174, 501) | endPos : (871, 42) | Time = 138 | COST = $10014 | Length = 834.56 |  State : Delivered |  Start Time : 233 |  End Time : 434
+startPos : (57, 724) | endPos : (517, 621) | Time = 150 | COST = $5656 | Length = 471.391 |  State : Delivered |  Start Time : 269 |  End Time : 337
+Total cost : 21605
+Total delivered : 3
+Rider1 Pos : 871, 42
+== 5-th Rider Result ==
+startPos : (168, 764) | endPos : (241, 828) | Time = 56 | COST = $5000 | Length = 97.0824 |  State : Delivered |  Start Time : 82 |  End Time : 96
+startPos : (680, 578) | endPos : (376, 123) | Time = 98 | COST = $6566 | Length = 547.212 |  State : Delivered |  Start Time : 170 |  End Time : 249
+startPos : (651, 627) | endPos : (876, 610) | Time = 255 | COST = $5000 | Length = 225.641 |  State : Delivered |  Start Time : 337 |  End Time : 370
+Total cost : 16566
+Total delivered : 3
+Rider1 Pos : 876, 610
+== 6-th Rider Result ==
+startPos : (998, 539) | endPos : (462, 517) | Time = 70 | COST = $6437 | Length = 536.451 |  State : Delivered |  Start Time : 159 |  End Time : 236
+startPos : (250, 471) | endPos : (384, 786) | Time = 246 | COST = $5000 | Length = 342.317 |  State : Delivered |  Start Time : 276 |  End Time : 325
+startPos : (473, 995) | endPos : (284, 291) | Time = 296 | COST = $8747 | Length = 728.929 |  State : Not Delivered | 
+startPos : (404, 90) | endPos : (781, 285) | Time = 295 | COST = $5093 | Length = 424.446 |  State : Not Delivered | 
+startPos : (18, 965) | endPos : (62, 845) | Time = 297 | COST = $5000 | Length = 127.812 |  State : Delivered |  Start Time : 424 |  End Time : 443
+Total cost : 16437
+Total delivered : 3
+Rider1 Pos : 207.812, 481.127
+== 7-th Rider Result ==
+startPos : (92, 194) | endPos : (948, 722) | Time = 96 | COST = $12068 | Length = 1005.74 |  State : Delivered |  Start Time : 129 |  End Time : 273
+startPos : (558, 672) | endPos : (101, 462) | Time = 285 | COST = $6035 | Length = 502.94 |  State : Delivered |  Start Time : 341 |  End Time : 413
+Total cost : 18103
+Total delivered : 2
+Rider1 Pos : 101, 462
+== 8-th Rider Result ==
+startPos : (234, 319) | endPos : (358, 170) | Time = 114 | COST = $5000 | Length = 193.848 |  State : Delivered |  Start Time : 169 |  End Time : 197
+startPos : (41, 344) | endPos : (941, 370) | Time = 196 | COST = $10804 | Length = 900.375 |  State : Delivered |  Start Time : 249 |  End Time : 378
+startPos : (917, 157) | endPos : (454, 378) | Time = 186 | COST = $6156 | Length = 513.04 |  State : Not Delivered | 
+startPos : (794, 144) | endPos : (481, 136) | Time = 167 | COST = $5000 | Length = 313.102 |  State : Delivered |  Start Time : 427 |  End Time : 472
+Total cost : 20804
+Total delivered : 3
+Rider1 Pos : 460.043, 323.835
+== 9-th Rider Result ==
+startPos : (125, 359) | endPos : (777, 799) | Time = 122 | COST = $9438 | Length = 786.577 |  State : Delivered |  Start Time : 178 |  End Time : 291
+startPos : (727, 887) | endPos : (898, 615) | Time = 287 | COST = $5000 | Length = 321.286 |  State : Delivered |  Start Time : 306 |  End Time : 352
+Total cost : 14438
+Total delivered : 2
+Rider1 Pos : 898, 615
+ ============================================
+-------- Rider2 Result ---------
+== 0-th Rider Result ==
+startPos : (967, 606) | endPos : (361, 78) | Time = 1 | COST = $9645 | Length = 803.754 |  State : Delivered |  Start Time : 81 |  End Time : 196
+startPos : (396, 362) | endPos : (898, 999) | Time = 127 | COST = $9732 | Length = 811.032 |  State : Delivered |  Start Time : 237 |  End Time : 364
+startPos : (430, 930) | endPos : (428, 824) | Time = 148 | COST = $5000 | Length = 106.019 |  State : Delivered |  Start Time : 432 |  End Time : 448
+startPos : (722, 501) | endPos : (436, 816) | Time = 181 | COST = $5105 | Length = 425.466 |  State : Delivered |  Start Time : 288 |  End Time : 450
+Total cost : 29482
+Total delivered : 4
+Rider1 Pos : 436, 816
+== 1-th Rider Result ==
+startPos : (820, 18) | endPos : (53, 214) | Time = 24 | COST = $9499 | Length = 791.647 |  State : Delivered |  Start Time : 153 |  End Time : 267
+startPos : (193, 812) | endPos : (256, 308) | Time = 267 | COST = $6095 | Length = 507.922 |  State : Delivered |  Start Time : 355 |  End Time : 428
+startPos : (962, 651) | endPos : (916, 147) | Time = 264 | COST = $6073 | Length = 506.095 |  State : Not Delivered | 
+Total cost : 15594
+Total delivered : 2
+Rider1 Pos : 703.035, 525.186
+== 2-th Rider Result ==
+startPos : (509, 982) | endPos : (910, 176) | Time = 25 | COST = $10802 | Length = 900.243 |  State : Delivered |  Start Time : 77 |  End Time : 206
+startPos : (0, 968) | endPos : (661, 772) | Time = 230 | COST = $8273 | Length = 689.447 |  State : Not Delivered | 
+Total cost : 10802
+Total delivered : 1
+Rider1 Pos : 650.984, 774.97
+== 3-th Rider Result ==
+startPos : (845, 310) | endPos : (15, 539) | Time = 31 | COST = $10332 | Length = 861.012 |  State : Delivered |  Start Time : 132 |  End Time : 256
+startPos : (484, 110) | endPos : (618, 281) | Time = 257 | COST = $5000 | Length = 217.249 |  State : Delivered |  Start Time : 347 |  End Time : 379
+Total cost : 15332
+Total delivered : 2
+Rider1 Pos : 618, 281
+== 4-th Rider Result ==
+startPos : (545, 24) | endPos : (382, 491) | Time = 53 | COST = $5935 | Length = 494.629 |  State : Delivered |  Start Time : 132 |  End Time : 203
+startPos : (174, 501) | endPos : (871, 42) | Time = 138 | COST = $10014 | Length = 834.56 |  State : Delivered |  Start Time : 233 |  End Time : 434
+startPos : (57, 724) | endPos : (517, 621) | Time = 150 | COST = $5656 | Length = 471.391 |  State : Delivered |  Start Time : 269 |  End Time : 337
+Total cost : 21605
+Total delivered : 3
+Rider1 Pos : 871, 42
+== 5-th Rider Result ==
+startPos : (168, 764) | endPos : (241, 828) | Time = 56 | COST = $5000 | Length = 97.0824 |  State : Delivered |  Start Time : 82 |  End Time : 96
+startPos : (680, 578) | endPos : (376, 123) | Time = 98 | COST = $6566 | Length = 547.212 |  State : Delivered |  Start Time : 170 |  End Time : 249
+startPos : (651, 627) | endPos : (876, 610) | Time = 255 | COST = $5000 | Length = 225.641 |  State : Delivered |  Start Time : 337 |  End Time : 370
+Total cost : 16566
+Total delivered : 3
+Rider1 Pos : 876, 610
+== 6-th Rider Result ==
+startPos : (998, 539) | endPos : (462, 517) | Time = 70 | COST = $6437 | Length = 536.451 |  State : Delivered |  Start Time : 159 |  End Time : 236
+startPos : (250, 471) | endPos : (384, 786) | Time = 246 | COST = $5000 | Length = 342.317 |  State : Delivered |  Start Time : 276 |  End Time : 325
+startPos : (473, 995) | endPos : (284, 291) | Time = 296 | COST = $8747 | Length = 728.929 |  State : Not Delivered | 
+startPos : (404, 90) | endPos : (781, 285) | Time = 295 | COST = $5093 | Length = 424.446 |  State : Not Delivered | 
+startPos : (18, 965) | endPos : (62, 845) | Time = 297 | COST = $5000 | Length = 127.812 |  State : Delivered |  Start Time : 424 |  End Time : 443
+Total cost : 16437
+Total delivered : 3
+Rider1 Pos : 207.812, 481.127
+== 7-th Rider Result ==
+startPos : (92, 194) | endPos : (948, 722) | Time = 96 | COST = $12068 | Length = 1005.74 |  State : Delivered |  Start Time : 129 |  End Time : 273
+startPos : (558, 672) | endPos : (101, 462) | Time = 285 | COST = $6035 | Length = 502.94 |  State : Delivered |  Start Time : 341 |  End Time : 413
+Total cost : 18103
+Total delivered : 2
+Rider1 Pos : 101, 462
+== 8-th Rider Result ==
+startPos : (234, 319) | endPos : (358, 170) | Time = 114 | COST = $5000 | Length = 193.848 |  State : Delivered |  Start Time : 169 |  End Time : 197
+startPos : (41, 344) | endPos : (941, 370) | Time = 196 | COST = $10804 | Length = 900.375 |  State : Delivered |  Start Time : 249 |  End Time : 378
+startPos : (917, 157) | endPos : (454, 378) | Time = 186 | COST = $6156 | Length = 513.04 |  State : Not Delivered | 
+startPos : (794, 144) | endPos : (481, 136) | Time = 167 | COST = $5000 | Length = 313.102 |  State : Delivered |  Start Time : 427 |  End Time : 472
+Total cost : 20804
+Total delivered : 3
+Rider1 Pos : 460.043, 323.835
+== 9-th Rider Result ==
+startPos : (125, 359) | endPos : (777, 799) | Time = 122 | COST = $9438 | Length = 786.577 |  State : Delivered |  Start Time : 178 |  End Time : 291
+startPos : (727, 887) | endPos : (898, 615) | Time = 287 | COST = $5000 | Length = 321.286 |  State : Delivered |  Start Time : 306 |  End Time : 352
+Total cost : 14438
+Total delivered : 2
+Rider1 Pos : 898, 615
+ ============================================

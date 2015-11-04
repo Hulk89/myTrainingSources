@@ -1,0 +1,80 @@
+receiver count = 1
+VmSize:	 1655892 kB
+VmRSS:	  432304 kB
+VmLck:	       0 kB
+receiver count = 2
+VmSize:	 1667228 kB
+VmRSS:	  435676 kB
+VmLck:	       0 kB
+receiver count = 3
+VmSize:	 1694880 kB
+VmRSS:	  439104 kB
+VmLck:	       0 kB
+receiver count = 4
+VmSize:	 1706276 kB
+VmRSS:	  443232 kB
+VmLck:	       0 kB
+receiver count = 5
+VmSize:	 1717612 kB
+VmRSS:	  447164 kB
+VmLck:	       0 kB
+receiver count = 6
+VmSize:	 1728880 kB
+VmRSS:	  450868 kB
+VmLck:	       0 kB
+receiver count = 7
+VmSize:	 1740276 kB
+VmRSS:	  453600 kB
+VmLck:	       0 kB
+receiver count = 8
+VmSize:	 1751612 kB
+VmRSS:	  457100 kB
+VmLck:	       0 kB
+receiver count = 9
+VmSize:	 1762880 kB
+VmRSS:	  461020 kB
+VmLck:	       0 kB
+receiver count = 10
+VmSize:	 1790660 kB
+VmRSS:	  464676 kB
+VmLck:	       0 kB
+receiver count = 11
+VmSize:	 1801996 kB
+VmRSS:	  468476 kB
+VmLck:	       0 kB
+receiver count = 12
+VmSize:	 1813264 kB
+VmRSS:	  472248 kB
+VmLck:	       0 kB
+receiver count = 13
+VmSize:	 1824660 kB
+VmRSS:	  475728 kB
+VmLck:	       0 kB
+receiver count = 14
+VmSize:	 1835992 kB
+VmRSS:	  478784 kB
+VmLck:	       0 kB
+receiver count = 15
+VmSize:	 1863712 kB
+VmRSS:	  482064 kB
+VmLck:	       0 kB
+receiver count = 16
+VmSize:	 1891364 kB
+VmRSS:	  485756 kB
+VmLck:	       0 kB
+receiver count = 17
+VmSize:	 1902760 kB
+VmRSS:	  488028 kB
+VmLck:	       0 kB
+receiver count = 18
+VmSize:	 1914096 kB
+VmRSS:	  491916 kB
+VmLck:	       0 kB
+receiver count = 19
+VmSize:	 1941748 kB
+VmRSS:	  496296 kB
+VmLck:	       0 kB
+receiver count = 20
+VmSize:	 1969528 kB
+VmRSS:	  499396 kB
+VmLck:	       0 kB
