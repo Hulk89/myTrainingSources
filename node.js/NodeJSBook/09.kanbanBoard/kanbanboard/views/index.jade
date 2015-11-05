@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    div.container
+        div.jumbotron
+            h1 My KANBANBOARD
+            p If you wanna add task, press "Add Task" button. 
+            a.btn.btn-primary.btn-lg Add Task
+    div.container
+        div.row
+            div.col-md-4
+                h2 TO-DO
+                ul.list-group
+                    each val in todoTasks
+                        li.list-group-item= val
+            div.col-md-4
+                h2 In-Progress
+                ul.list-group
+                    each val in inProgressTasks 
+                        li.list-group-item= val
+            div.col-md-4
+                h2 Done
+                ul.list-group
+                    each val in doneTasks
+                        li.list-group-item= val
