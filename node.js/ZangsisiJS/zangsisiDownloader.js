@@ -41,12 +41,14 @@ function downImg( res ) {
 
         var prefix = process.argv[3];
         var postfix = '.jpg'; // It should be changed to url's final 4 character.
-
         var fileName;
         var len = urls.length;
 
         for ( var i = 0 ; i < len ; i++ ) {
             console.log( i + "/" + len + " completed." );
+
+            postfix = urls[i].substring( urls[i].length-4,urls[i].length ); // change extend name.
+
             fileName = prefix + pad( i ) + postfix;
             downloader.downFile( fileName, urls[i] );
             sleep.usleep(10000);
