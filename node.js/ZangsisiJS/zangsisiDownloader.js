@@ -39,7 +39,6 @@ function downImg( res ) {
             urls.push( m[1] );
         }
 
-        var index = 1;
         var prefix = process.argv[3];
         var postfix = '.jpg'; // It should be changed to url's final 4 character.
 
