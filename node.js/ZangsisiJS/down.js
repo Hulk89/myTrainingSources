@@ -9,7 +9,9 @@ exports.downFile = function downFile( fileName, url, callback )
     var request = http.get( url, function(response) {
         response.pipe(file);
 
-        callback();
+        response.on('end', function() {
+            callback();
+        });
     });
 }
 
