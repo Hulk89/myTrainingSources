@@ -1,7 +1,6 @@
 var http = require( 'http' );
 var downloader = require( './down');
-var sleep = require( 'sleep' );
-
+var async = require( 'async' );
 
 var options = 
 {
@@ -11,14 +10,13 @@ var options =
 };
 
 function pad(num) {
-    var s = "00" + num;
+    var s = "00000" + num;
 
-    return s.substr( s.length - 3 );
+    return s.substr( s.length - 4 );
 }
 
 function downImg( res ) {
     var str = '';
-    var startIdx;
 
     res.setEncoding('utf8');
     
@@ -27,15 +25,16 @@ function downImg( res ) {
     });
 
     res.on( 'end', function() {
-        startIdx = str.indexOf('<span class="title">');
+        var startIdx = str.indexOf('<span class="title">');
         var subStr = str.substring( startIdx, str.length );
-        
-        console.log( subStr );
+        var endIdx = subStr.indexOf( '<!-- 하단 광고 -->' );
+        var subStr = subStr.substring( 0, endIdx );
+
         var m;
         urls = []; 
-        rex = /src="?([^"\s]+)"?\s*\/>/g;
+        rex = /<img.*?src=["'](.*?)["']/g;
 
-        while ( m = rex.exec( str ) ) {
+        while ( m = rex.exec( subStr ) ) {
             urls.push( m[1] );
         }
 
@@ -44,17 +43,20 @@ function downImg( res ) {
         var fileName;
         var len = urls.length;
 
-        for ( var i = 0 ; i < len ; i++ ) {
-            console.log( i + "/" + len + " completed." );
-
-            postfix = urls[i].substring( urls[i].length-4,urls[i].length ); // change extend name.
-
-            fileName = prefix + pad( i ) + postfix;
-            downloader.downFile( fileName, urls[i] );
-            sleep.usleep(10000);
-        }
-
-        console.log( "Download completed." );
+        async.each( urls, 
+            function( item, callback ) {
+                postfix = item.substring( item.length-4, item.length );
+                fileName = prefix + pad( urls.indexOf(item) ) + postfix;
+                downloader.downFile( fileName, item, function(){
+                    callback();
+                } );
+            },
+            function ( err ) {
+                if ( err ) 
+                    console.error( err.message );
+                console.log( "Download completed." );
+            }
+        );
     });
 }
 
