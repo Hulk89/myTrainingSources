@@ -1,5 +1,5 @@
 
-exports.getPathfromURL( url ){
+function getPathfromURL( url ){
     var m;
     urls = []; 
     rex = /zangsisi\.net(\/\?p=[0-9]*)/g;
