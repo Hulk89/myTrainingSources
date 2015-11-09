@@ -10,7 +10,6 @@ var options =
     method:     'GET'
 };
 
-
 function pad(num) {
     var s = "00" + num;
 
@@ -39,7 +38,6 @@ function downImg( res ) {
         while ( m = rex.exec( str ) ) {
             urls.push( m[1] );
         }
-        console.log( urls );
 
         var index = 1;
         var prefix = process.argv[3];
@@ -49,21 +47,21 @@ function downImg( res ) {
         var len = urls.length;
 
         for ( var i = 0 ; i < len ; i++ ) {
-            console.log( urls[i] );
+            console.log( i + "/" + len + " completed." );
             fileName = prefix + pad( i ) + postfix;
             downloader.downFile( fileName, urls[i] );
             sleep.usleep(10000);
         }
+
+        console.log( "Download completed." );
     });
 }
 
 if ( process.argv.length != 4 )
 {
-    console.log( "node __filename urlPath dirName" );
-    quit();
+    console.log( "usage : node zzangsisiDownloader.js <urlPath> <dirName>" );
 }
-
-
-console.log( options );
-
-http.request( options, downImg ).end();
+else
+{
+    http.request( options, downImg ).end();
+}
