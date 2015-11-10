@@ -50,6 +50,8 @@ function downImg( res ) {
         var fileName;
         var len = urls.length;
 
+        console.log( urls );
+
         async.each( urls, 
             function( item, callback ) {
                 postfix = item.substring( item.length-4, item.length );
