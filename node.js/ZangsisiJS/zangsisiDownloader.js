@@ -37,6 +37,7 @@ function downImg( res ) {
         while ( m = rex.exec( subStr ) ) {
             urls.push( m[1] );
         }
+        console.log( urls );
 
         var prefix = process.argv[3];
         var postfix = '.jpg'; // It should be changed to url's final 4 character.
@@ -47,7 +48,9 @@ function downImg( res ) {
             function( item, callback ) {
                 postfix = item.substring( item.length-4, item.length );
                 fileName = prefix + pad( urls.indexOf(item) ) + postfix;
-                downloader.downFile( fileName, item, function(){
+
+                var item2 = item.replace( 'https', 'http' );
+                downloader.downFile( fileName, item2, function(){
                     callback();
                 } );
             },
