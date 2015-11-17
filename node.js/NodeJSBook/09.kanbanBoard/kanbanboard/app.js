@@ -12,8 +12,8 @@ var users = require('./routes/users');
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('views', path.join(__dirname, 'views')); // curDir의 views 폴더 안에 view 파일들을 저장한다.
+app.set('view engine', 'jade');                  // view engine은 jade를 사용한다.
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
