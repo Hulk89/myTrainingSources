@@ -1,0 +1,13 @@
+{
+  "name": "simpleconnect",
+  "version": "0.0.1",
+  "description": "connect test",
+  "dependencies": { "connect":  "*",
+                    "morgan": "*" },
+  "main": "01.uselessMiddleware.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
