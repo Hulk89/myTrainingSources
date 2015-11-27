@@ -2,6 +2,7 @@ var Task = require('../models/task.js');
 
 exports.create = function( req,res ) {
     console.log( 'create' );
+    console.log( req.body );
     Task.find( { contents: req.body.contents },
                function( err, tasks ) {
       if ( err )
