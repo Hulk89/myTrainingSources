@@ -6,8 +6,12 @@ app.all( "*", function( req, res, next ) {
     res.writeHead( 200, { "content-type": "text/plain" } );
     next();
 });
+app.get( "/", function( req, res, next ) {
+    res.write( "Root page!" );
+    next('route');
+});
 app.get( "/", function( req, res ) {
-    res.end( "Root page!" );
+    res.end( "END" );
 });
 app.get( "/about", function( req, res ) {
     res.end( "About page!" );
