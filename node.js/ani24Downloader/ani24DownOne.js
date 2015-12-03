@@ -32,35 +32,33 @@ function getFileUrl( str ) {
     return rex.exec( subStr )[1];
 }
 
-function downMovie( res, callback ) {
-    var str = '';
-
-    res.setEncoding('utf8');
-    
-    res.on( 'data', function( chunk ) {
-        str += chunk;
-    });
-
-    res.on( 'end', function() {
-        var fileUrl = getFileUrl( str );
-        var fileName = getNameOfFile( str );
-
-        console.log( "file name : " + fileName );
-        console.log( "file url  : " + fileUrl );
-
-        var postfix = fileUrl.substring( fileUrl.length-4, fileUrl.length ); 
-        fileName = fileName + postfix;
-
-        fileUrl = fileUrl.replace( 'https', 'http' );
-
-        downloader.downFile( fileName, fileUrl, callback );
-
-    });
-}
-
-exports.downOneMovie = function ( aniUrl )
+exports.downOneMovie = function ( aniUrl, callback )
 {
-    var options = url.parse(process.argv[2])
-    http.request( options, downMovie ).end();
-}
+    var options = url.parse( aniUrl )
 
+    var req = http.request( options, function ( res )
+        {
+            var str = '';
+
+            res.setEncoding('utf8');
+            
+            res.on( 'data', function( chunk ) {
+                str += chunk;
+            });
+
+            res.on( 'end', function() {
+                var fileUrl = getFileUrl( str );
+                var fileName = getNameOfFile( str );
+
+                console.log( "file name : " + fileName );
+                console.log( "file url  : " + fileUrl );
+
+                var postfix = fileUrl.substring( fileUrl.length-4, fileUrl.length ); 
+                fileName = fileName + postfix;
+
+                fileUrl = fileUrl.replace( 'https', 'http' );
+
+                downloader.downFile( fileName, fileUrl, callback );
+            });   
+        }).end();
+}

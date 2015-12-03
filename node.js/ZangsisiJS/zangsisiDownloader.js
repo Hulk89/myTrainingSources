@@ -15,6 +15,16 @@ function pad(num) {
     return s.substr( s.length - 4 );
 }
 
+function cropImageHTML( strHTML )
+{
+    var startIdx = strHTML.indexOf('<span class="title">');
+    var subStr = strHTML.substring( startIdx, strHTML.length );
+    var endIdx = subStr.indexOf( '<!-- 하단 광고 -->' );
+    var subStr = subStr.substring( 0, endIdx );
+
+    return subStr;
+}
+
 function downImg( res ) {
     var str = '';
 
@@ -25,16 +35,13 @@ function downImg( res ) {
     });
 
     res.on( 'end', function() {
-        var startIdx = str.indexOf('<span class="title">');
-        var subStr = str.substring( startIdx, str.length );
-        var endIdx = subStr.indexOf( '<!-- 하단 광고 -->' );
-        var subStr = subStr.substring( 0, endIdx );
+        var imageHTML = cropImageHTML( str );
 
         var m;
         urls = []; 
         rex = /<img.*?src=["'](.*?)["']/g;
 
-        while ( m = rex.exec( subStr ) ) {
+        while ( m = rex.exec( imageHTML ) ) {
             urls.push( m[1] );
         }
         console.log( urls );
@@ -43,6 +50,8 @@ function downImg( res ) {
         var postfix = '.jpg'; // It should be changed to url's final 4 character.
         var fileName;
         var len = urls.length;
+
+        console.log( urls );
 
         async.each( urls, 
             function( item, callback ) {

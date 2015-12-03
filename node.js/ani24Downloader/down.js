@@ -27,7 +27,7 @@ exports.downFile = function downFile( fileName, url, callback )
             }
 
         });
-        
+
         response.on('end', function() {
             callback();
         });

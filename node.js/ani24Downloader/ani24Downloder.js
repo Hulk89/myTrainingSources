@@ -35,8 +35,23 @@ function downFileList( res ) {
     res.on( 'end', function() {
         var urls = getFileUrls( str );
 
+        urls.forEach( function( item, index, array ) {
+            array[index] = "http://ani24.net"+item;
+        });
         console.log( urls );
 
+        async.eachSeries( urls,
+            function( item, callback ) {
+
+                ani24DownOne.downOneMovie( item, function() {
+                    callback();
+                });
+            },
+            function( err ) {
+                if ( err )
+                    console.error( err.message );
+                console.log( "Download All!!" );
+            });
     });
 
 }
@@ -46,6 +61,3 @@ var options = url.parse( process.argv[2] );
 
 http.request( options, downFileList ).end();
 
-
-
-//ani24DownOne.downOneMovie( process.argv[2] );
