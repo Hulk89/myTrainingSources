@@ -32,7 +32,7 @@ function getFileUrl( str ) {
     return rex.exec( subStr )[1];
 }
 
-function downMovie( res ) {
+function downMovie( res, callback ) {
     var str = '';
 
     res.setEncoding('utf8');
@@ -53,16 +53,14 @@ function downMovie( res ) {
 
         fileUrl = fileUrl.replace( 'https', 'http' );
 
-        downloader.downFile( fileName, fileUrl, function() {
-            console.log( "Download Complete!" );
-        });
+        downloader.downFile( fileName, fileUrl, callback );
 
     });
 }
 
-var options = url.parse(process.argv[2])
-http.request( options, downMovie ).end();
-
-    
-
+exports.downOneMovie = function ( aniUrl )
+{
+    var options = url.parse(process.argv[2])
+    http.request( options, downMovie ).end();
+}
 
