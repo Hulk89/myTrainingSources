@@ -18,7 +18,7 @@ exports.downFile = function downFile( fileName, url, callback )
         {
             currSize += chunk.length;
             
-            currPercent = 100.0 * currSize / fileSize;
+            currPercent = Math.round( 100.0 * currSize / fileSize );
 
             if ( prevPercent + 1 <= currPercent )
             {
