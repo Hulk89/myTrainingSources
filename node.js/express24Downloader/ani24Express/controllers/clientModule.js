@@ -28,8 +28,11 @@
         var idx      = data.idx;
         var fileName = data.fileName;
         var progress = data.progress;
-        var string = '<li class="list-group-item" id=' + idx + '>'
-                   + fileName + " : " + progress + " %" +'</li>';
+        var string = '<div class="list-group-item" >'
+                   + fileName + " : " +
+                   '<div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="' + progress +
+                   '" aria-valuemin="0" aria-valuemax="100" style="width:'+progress +'%" id=' + idx + '>'
+                   + progress + ' % </div>' + '</div>';
         console.log( string );
 
         $('#fileList').append( string );
@@ -43,7 +46,8 @@
           var progress = data.progress;
           console.log( 'progress : ' + progress + "%" );
           console.log( data );
-          $('#'+idx).text( fileName + " : " +progress +" %");
+          $('#'+idx).text( progress + ' %' );
+          $('#'+idx).attr( "style", 'width: ' + progress + '%' );
       },
 
       send : function() {

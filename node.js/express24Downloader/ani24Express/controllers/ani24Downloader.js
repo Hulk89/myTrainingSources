@@ -59,7 +59,8 @@ Downloader.prototype.downFile =
             onEnd();
         });
     });
-};
+}
+
 Downloader.prototype.getFileNameAndUrls =
 function( urlList, callback )
 {
