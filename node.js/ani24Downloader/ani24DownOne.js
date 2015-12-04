@@ -3,11 +3,6 @@ var downloader = require( './down');
 var async = require( 'async' );
 var url = require( 'url' );
 
-function pad(num) {
-    var s = "00000" + num;
-
-    return s.substr( s.length - 4 );
-}
 
 function getNameOfFile( str ) {
     var startIdx = str.indexOf('<!-- 정보 시작 -->');
@@ -18,7 +13,7 @@ function getNameOfFile( str ) {
     rex = /<div style="font:bold 14pt Dotum; color:#333333; margin-bottom:5px;">(.*?)<\/div>/g
 
     return rex.exec( subStr )[1];
-    
+
 }
 
 function getFileUrl( str ) {
@@ -41,7 +36,7 @@ exports.downOneMovie = function ( aniUrl, callback )
             var str = '';
 
             res.setEncoding('utf8');
-            
+
             res.on( 'data', function( chunk ) {
                 str += chunk;
             });
@@ -50,15 +45,12 @@ exports.downOneMovie = function ( aniUrl, callback )
                 var fileUrl = getFileUrl( str );
                 var fileName = getNameOfFile( str );
 
-                console.log( "file name : " + fileName );
-                console.log( "file url  : " + fileUrl );
-
-                var postfix = fileUrl.substring( fileUrl.length-4, fileUrl.length ); 
+                var postfix = fileUrl.substring( fileUrl.length-4, fileUrl.length );
                 fileName = fileName + postfix;
 
                 fileUrl = fileUrl.replace( 'https', 'http' );
 
                 downloader.downFile( fileName, fileUrl, callback );
-            });   
+            });
         }).end();
 }
