@@ -3,6 +3,10 @@ var url  = require( 'url' );
 var async = require( 'async' );
 var ani24DownOne = require( './ani24DownOne.js' );
 
+process.on('uncaughtException', function( err ) {
+    console.log( 'Caught excption: ' + err );
+    console.log( err.stack );
+});
 function getFileUrls( str ) {
     var startIdx = str.indexOf('공지사항 -->');
     var subStr = str.substring( startIdx, str.length );
