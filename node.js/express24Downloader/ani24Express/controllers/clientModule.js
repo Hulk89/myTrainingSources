@@ -20,19 +20,30 @@
 
       add : function( data ) {
         console.log( "add request" );
+        console.log( data.fileName );
+
         $('#downNum').text( parseInt($('#downNum').text()) + 1 );
+
         //add url and progressbar
-        $('#fileList').append( '<li class="list-group-item" id=' + data['url'] + '>' + data['url'] + '</li>');
+        var idx      = data.idx;
+        var fileName = data.fileName;
+        var progress = data.progress;
+        var string = '<li class="list-group-item" id=' + idx + '>'
+                   + fileName + " : " + progress + " %" +'</li>';
+        console.log( string );
+
+        $('#fileList').append( string );
 
       },
 
       // 서버로 부터 발행된 new 이벤트 처리하는 펑션
       progress : function( data ) {
-
-          var url = data.url;
+          var idx      = data.idx;
+          var fileName = data.fileName;
           var progress = data.progress;
           console.log( 'progress : ' + progress + "%" );
-          $('#'+url).text( url + progress );
+          console.log( data );
+          $('#'+idx).text( fileName + " : " +progress +" %");
       },
 
       send : function() {

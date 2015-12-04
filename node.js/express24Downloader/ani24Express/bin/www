@@ -33,32 +33,36 @@ server.on('listening', onListening);
 var io = require('socket.io').listen(server);
 
 io.sockets.on('connection',function(socket){
+  var downAniObj = new aniDownloader();
 
-   socket.on( 'downFile', function( data ){
-     var downList = app.get( 'downList' );
+  socket.on( 'downFile', function( data ){
+    var fileList = downAniObj.fileList;
 
-     var fileUrl = data.url;
-     var progress = data.progress;
+    var fileUrl = data.url;
+    var progress = data.progress;
 
-     var isExist = downList.some( function( item, index, array ) {
-       return !item.url.search(fileUrl);
-     });
-     if ( !isExist )//찾아서 없으면
-     {
-       downList.push( data );
-       app.set( 'downList', downList );
+    var isExist = fileList.some( function( item, index, array ) {
+      return item['aniUrl'] == fileUrl;
+    });
 
-       aniDownloader.download( fileUrl,
-          function( url, currPercent ) {
-            var datagram = { url: url, progress: currPercent };
-            socket.emit('progress', datagram );
-          },
-          function( url ) {
-            var datagram = { url: url, progress: 100 };
-            socket.emit('progress', datagram );
+    if ( !isExist )//찾아서 없으면
+    {
+      downAniObj.getFileNameAndUrls( fileUrl,
+        function( fileInfos ) {
+          fileInfos.forEach( function( item, index, arr ) {
+            socket.emit( 'addUrl', item );
+
+            downAniObj.downFile( item.fileName,
+                                 item.fileUrl,
+                                 function(){
+                                    socket.emit('progress', item );
+                                 },
+                                 function(){
+                                    socket.emit('progress', item );
+                                 } );
           });
-       socket.emit( 'addUrl', data );
-     }
+        });
+    }
    });
 });
 /**
