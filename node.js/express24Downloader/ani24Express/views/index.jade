@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  script(src="/socket.io/socket.io.js")
+  script(src="./controllers/clientModule.js")
+  script(src='http://code.jquery.com/jquery-1.8.3.min.js')
+  script.
+    $(document).ready(function() {
+        ClientModule.initialize();
+    });
+  div.container
+    div.jumbotron
+        h1 Ani24Downloader
+        p url을 넣고 download 버튼을 누르면 download를 시작합니다.
+        div.form-group
+          input( type='text' name='url' class='form-control' id='url')
+          button(type='submit' class='btn btn-primary' id='download') Download
+  div.container
+    div.row
+      li.list-group-item.active Download...
+        span.badge= fileList.length
+      each val in fileList
+        div.input-group
+          li.list-group-item= val['url']
+      div.input-group-btn
+        form(action='/deleteFile', method='post')
+          button(type='submit' class='btn btn-danger' name='contents' value= val) Clear All
