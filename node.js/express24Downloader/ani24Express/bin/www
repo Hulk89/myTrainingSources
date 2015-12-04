@@ -36,33 +36,23 @@ io.sockets.on('connection',function(socket){
   var downAniObj = new aniDownloader();
 
   socket.on( 'downFile', function( data ){
-    var fileList = downAniObj.fileList;
-
     var fileUrl = data.url;
-    var progress = data.progress;
 
-    var isExist = fileList.some( function( item, index, array ) {
-      return item['aniUrl'] == fileUrl;
-    });
+    downAniObj.getFileNameAndUrls( fileUrl,
+      function( fileInfos ) {       // fileInfos : file info array
+        fileInfos.forEach( function( item, index, arr ) {
+          socket.emit( 'addUrl', item );
 
-    if ( !isExist )//찾아서 없으면
-    {
-      downAniObj.getFileNameAndUrls( fileUrl,
-        function( fileInfos ) {
-          fileInfos.forEach( function( item, index, arr ) {
-            socket.emit( 'addUrl', item );
-
-            downAniObj.downFile( item.fileName,
-                                 item.fileUrl,
-                                 function(){
-                                    socket.emit('progress', item );
-                                 },
-                                 function(){
-                                    socket.emit('progress', item );
-                                 } );
-          });
+          downAniObj.downFile( item.fileName,
+                               item.fileUrl,
+                               function(){
+                                  socket.emit('progress', item );
+                               },
+                               function(){
+                                  socket.emit('progress', item );
+                               } );
         });
-    }
+      });
    });
 });
 /**

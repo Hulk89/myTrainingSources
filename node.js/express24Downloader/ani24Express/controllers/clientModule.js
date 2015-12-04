@@ -36,7 +36,6 @@
         console.log( string );
 
         $('#fileList').append( string );
-
       },
 
       // 서버로 부터 발행된 new 이벤트 처리하는 펑션

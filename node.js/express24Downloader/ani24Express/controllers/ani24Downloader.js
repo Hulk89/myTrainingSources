@@ -91,6 +91,7 @@ function( urlList, callback )
   else
   {
       console.log( "Invalid URL." );
+      callback( [] ); // empty Array return
   }
 }
 
