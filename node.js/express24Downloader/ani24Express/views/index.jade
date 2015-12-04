@@ -16,12 +16,10 @@ block content
           input( type='text' name='url' class='form-control' id='url')
           button(type='submit' class='btn btn-primary' id='download') Download
   div.container
-    div.row
+    div.row(id='fileList')
       li.list-group-item.active Download...
-        span.badge= fileList.length
-      each val in fileList
-        div.input-group
-          li.list-group-item= val['url']
-      div.input-group-btn
-        form(action='/deleteFile', method='post')
-          button(type='submit' class='btn btn-danger' name='contents' value= val) Clear All
+        span.badge(id='downNum') 0
+  div.container
+    div.input-group-btn
+      form(action='/deleteFile', method='post')
+        button(type='submit' class='btn btn-danger' name='contents' value= val) Clear All

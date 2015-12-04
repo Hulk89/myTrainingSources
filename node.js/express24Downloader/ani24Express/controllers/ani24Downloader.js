@@ -47,12 +47,12 @@ function downFile( fileName, url, onProgress, onEnd )
             {
                 prevPercent = currPercent;
 
-                onProgress( url, currPercent );
+                onProgress( currPercent );
             }
         });
 
         response.on('end', function() {
-            onEnd( url );
+            onEnd();
         });
     });
 }
@@ -81,8 +81,12 @@ function downOneMovie ( aniUrl, onProgress, onEnd )
 
                 downFile( fileName,
                           fileUrl,
-                          onProgress,
-                          onEnd );
+                          function( progress ){
+                            onProgress( aniUrl, progress);
+                          },
+                          function(){
+                            onEnd( aniUrl );
+                          } );
             });
         }).end();
 }

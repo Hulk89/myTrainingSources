@@ -33,7 +33,6 @@ server.on('listening', onListening);
 var io = require('socket.io').listen(server);
 
 io.sockets.on('connection',function(socket){
-   console.log( "Hello" );
 
    socket.on( 'downFile', function( data ){
      var downList = app.get( 'downList' );
@@ -58,6 +57,7 @@ io.sockets.on('connection',function(socket){
             var datagram = { url: url, progress: 100 };
             socket.emit('progress', datagram );
           });
+       socket.emit( 'addUrl', data );
      }
    });
 });
