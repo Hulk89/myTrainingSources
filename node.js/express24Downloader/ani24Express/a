@@ -1,0 +1,115 @@
+diff --git a/node.js/express24Downloader/ani24Express/controllers/clientModule.js b/node.js/express24Downloader/ani24Express/controllers/clientModule.js
+index 8b12aa9..4bf1576 100644
+--- a/node.js/express24Downloader/ani24Express/controllers/clientModule.js
++++ b/node.js/express24Downloader/ani24Express/controllers/clientModule.js
+@@ -1,10 +1,23 @@
+ (function() {
+     window.ClientModule = {
+       socket : null,
++      fileList : null, //fileInfoList
++      fileCount : 0,          //현재 다운받는 것의 갯수
+ 
+-     // 초기화 시에 /chat uri 네임스페이스를 넣어주었다
++      updateView : function() {
++        $('#downNum').text( window.ClientModule.fileCount );
++        //add url and progressbar
++
++        $('#fileList').empty();
++
++        window.ClientModule.fileList.forEach( function( item, index, arr ) {
++          $('#fileList').append( item.string );
++        } );
++      },
++      // 초기화 시에 /chat uri 네임스페이스를 넣어주었다
+       initialize : function() {
+           this.socket = io.connect("http://localhost:3000");
++          window.ClientModule.fileList = new Array();
+ 
+           // send 버튼을 누를 경우 실행
+           $('#download').click(function() {
+@@ -18,35 +31,49 @@
+           this.socket.on('addUrl', this.add);
+       },
+ 
++      makeStringFromData : function ( data )
++      {
++        return '<div class="list-group-item" >'
++                          + data.fileName + " : " +
++                          '<div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="'
++                           + data.progress +
++                           '" aria-valuemin="0" aria-valuemax="100" style="width:' +
++                           data.progress + '%" id=' + data.idx + '>'
++                           + data.progress + ' % </div>' + '</div>';
++      },
++
+       add : function( data ) {
+         console.log( "add request" );
+         console.log( data.fileName );
+ 
+-        $('#downNum').text( parseInt($('#downNum').text()) + 1 );
++        var fileInfo = new Object();
+ 
+-        //add url and progressbar
+-        var idx      = data.idx;
+-        var fileName = data.fileName;
+-        var progress = data.progress;
+-        var string = '<div class="list-group-item" >'
+-                   + fileName + " : " +
+-                   '<div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="' + progress +
+-                   '" aria-valuemin="0" aria-valuemax="100" style="width:'+progress +'%" id=' + idx + '>'
+-                   + progress + ' % </div>' + '</div>';
+-        console.log( string );
+-
+-        $('#fileList').append( string );
++        fileInfo.idx      = data.idx;
++        fileInfo.fileName = data.fileName;
++        fileInfo.progress = data.progress;
++        fileInfo.string = window.ClientModule.makeStringFromData( data );
++
++        window.ClientModule.fileList.push( fileInfo )
++        window.ClientModule.fileCount = window.ClientModule.fileCount + 1;
++        window.ClientModule.updateView( );
+       },
+ 
++      updateProgress: function( data ){
++        window.ClientModule.fileList.some( function( item, index, array ) {
++          if ( item.idx == data.idx )
++          {
++            item.progress = data.progress
++            return true;
++          }
++          else {
++            return false;
++          }
++        })
++      },
+       // 서버로 부터 발행된 new 이벤트 처리하는 펑션
+       progress : function( data ) {
+-          var idx      = data.idx;
+-          var fileName = data.fileName;
+-          var progress = data.progress;
+-          console.log( 'progress : ' + progress + "%" );
+-          console.log( data );
+-          $('#'+idx).text( progress + ' %' );
+-          $('#'+idx).attr( "style", 'width: ' + progress + '%' );
++        window.ClientModule.updateProgress( data );
++        window.ClientModule.updateView( );
+       },
+ 
+       send : function() {
+diff --git a/node.js/express24Downloader/ani24Express/views/index.jade b/node.js/express24Downloader/ani24Express/views/index.jade
+index 233f5b3..6203454 100644
+--- a/node.js/express24Downloader/ani24Express/views/index.jade
++++ b/node.js/express24Downloader/ani24Express/views/index.jade
+@@ -16,9 +16,10 @@ block content
+           input( type='text' name='url' class='form-control' id='url')
+           button(type='submit' class='btn btn-primary' id='download') Download
+   div.container
+-    div.row(id='fileList')
++    div.row
+       li.list-group-item.active Download...
+         span.badge(id='downNum') 0
++      div(id='fileList')
+   div.container
+     div.input-group-btn
+       button(type='submit' class='btn btn-danger' id='clear') Remove Completed

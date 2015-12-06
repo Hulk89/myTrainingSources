@@ -5,18 +5,21 @@ var fs  = require( 'fs' );
 var parser = require('./urlParser');
 
 
-function Downloader() {
+function aniDownloader() {
   this.fileList = [];
-  this.count = 0;
+  this.fileCount = 0;
 }
-
-Downloader.prototype.updateProgress =
+/* progress를 update하는 함수
+ * fileName : fileList의 fileName과 비교할 이름 ( in )
+ * progress : update할 progress 값 ( in )
+ */
+aniDownloader.prototype.updateProgress =
 function(fileName,progress)
 {
   this.fileList.some( function( item, index, array ){
-    if ( item['fileName'] == fileName  )
+    if ( item['fileName'] == fileName  )  //같츤 fileName에 대해 찾아서
     {
-      item['progress'] = progress;
+      item['progress'] = progress;        // progress를 업데이트하고 종료
       return true;
     }
     else {
@@ -25,7 +28,13 @@ function(fileName,progress)
   })
 };
 
-Downloader.prototype.downFile =
+/* file을 다운받는 함수
+ * fileName   : 다운받는 file의 이름을 지정 ( in )
+ * url        : 다운받는 file의 주소 ( in )
+ * onProgress : down받는 file이 1% 증가될 때마다 호출할 callback
+ * onEnd      : down이 완료될 때 호출할 callback
+ */
+aniDownloader.prototype.downFile =
  function ( fileName,
             url,
             onProgress,
@@ -46,11 +55,11 @@ Downloader.prototype.downFile =
         {
             currSize += chunk.length;
             currPercent = Math.round( 100.0 * currSize / fileSize );
-            if ( prevPercent + 1 <= currPercent )
+            if ( prevPercent + 1 <= currPercent ) // 저번 퍼센트보다 1 이상 증가했으면
             {
                 prevPercent = currPercent;
-                myObject.updateProgress( fileName, currPercent);
-                onProgress();
+                myObject.updateProgress( fileName, currPercent);  //update를 하고
+                onProgress();                                     //callback 호출
             }
         });
 
@@ -61,31 +70,36 @@ Downloader.prototype.downFile =
     });
 }
 
-Downloader.prototype.getFileNameAndUrls =
+/* fileName과 url을 파싱하는 함수.
+ * urlList  : 파싱할 url. List가 아닌 하나의 string이다. ( in )
+ * callback : 파싱이 끝났을 때 불릴 callback ( 인자는 infoList이다. )
+ */
+aniDownloader.prototype.getFileNameAndUrls =
 function( urlList, callback )
 {
   var options  = url.parse( urlList );
   var path     = options['path'];
   var myObject = this;
-  if ( path.indexOf("list") > -1 )
+
+  if ( path.indexOf("list") > -1 )              //list를 가지고있는 URL이면
   {
       http.request( options, function( res ){
-        myObject.getInfoList( res,
-                              function( infoList )
+        myObject.getInfoList( res,              // getInfoList로 List를 얻어온 후
+                              function( infoList )    // callback 호출
                               {
                                 callback( infoList );
                               } );
       } ).end();
 
   }
-  else if ( path.indexOf("view") > -1 )
+  else if ( path.indexOf("view") > -1 )         // 하나짜리 비디오 URL이면
   {
       var fileListFromUrl = [];
-      this.getOneInfo( urlList,
+      this.getOneInfo( urlList,                 // oneInfo를 얻은 후
                        function( oneFileInfo )
                        {
-                          fileListFromUrl.push( oneFileInfo );
-                          callback( fileListFromUrl );
+                          fileListFromUrl.push( oneFileInfo );  //List에 넣고
+                          callback( fileListFromUrl );          // callback 호출
                        } );
   }
   else
@@ -95,7 +109,11 @@ function( urlList, callback )
   }
 }
 
-Downloader.prototype.getOneInfo =
+/* 하나의 fileInfo를 callback으로 내보내는 함수.
+ * aniUrl   : view로 시작하는 url주소.
+ * callback : fileInfo를 구해 push한 이후 불릴 콜백 ( 인자 : fileInfo 하나 )
+ */
+aniDownloader.prototype.getOneInfo =
 function ( aniUrl, callback )
 {
     var options = url.parse( aniUrl )
@@ -117,21 +135,23 @@ function ( aniUrl, callback )
                 fileName = fileName + postfix;
                 fileUrl = fileUrl.replace( 'https', 'http' );
 
-                //fileName = fileName.replace(/ /g,"");
-                var myFileInfo = { fileName : fileName,
+                var myFileInfo = { fileName : fileName,                 // fileInfo를 만들고
                                    fileUrl  : fileUrl,
                                    progress : 0      ,
-                                   idx      : myObject.count };
-                myObject.count = myObject.count + 1;
-                myObject.fileList.push( myFileInfo );
-                callback( myFileInfo );
+                                   idx      : myObject.fileCount };
+                myObject.fileCount = myObject.fileCount + 1;            // count를 증가시키고
+                myObject.fileList.push( myFileInfo );                   // fileList에 넣고
+                callback( myFileInfo );                                 // callback 호출
             });
         }).end();
 };
-
-Downloader.prototype.getInfoList =
+/* List를 가지고있는 URL을 파싱해서 fileInfoList를 내보내는 함수
+ * res          : response ( in )
+ * callbackList : List를 다 만든 경우 callback ( 인자 : fileInfoList )
+ */
+aniDownloader.prototype.getInfoList =
  function( res,
-           callback ) {
+           callbackList ) {
     var infoList = [];
     var str = "";
     var myObject = this;
@@ -160,9 +180,9 @@ Downloader.prototype.getInfoList =
             function( err ) {
                 if ( err )
                     console.error( err.message );
-                callback( infoList );
+                callbackList( infoList );
             });
     });
 };
 
-module.exports = Downloader;
+module.exports = aniDownloader;

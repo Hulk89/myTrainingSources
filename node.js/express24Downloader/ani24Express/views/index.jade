@@ -16,9 +16,10 @@ block content
           input( type='text' name='url' class='form-control' id='url')
           button(type='submit' class='btn btn-primary' id='download') Download
   div.container
-    div.row(id='fileList')
+    div.row
       li.list-group-item.active Download...
         span.badge(id='downNum') 0
+      div(id='fileList')
   div.container
     div.input-group-btn
       button(type='submit' class='btn btn-danger' id='clear') Remove Completed
