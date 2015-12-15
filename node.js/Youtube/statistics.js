@@ -13,7 +13,11 @@ function getNumber( res ) {
     });
 
     res.on( 'end', function() {
-       console.log( str ); 
+      var obj = JSON.parse( str );
+      var viewCount = obj['items'][0]['statistics']['viewCount'];
+
+      console.log( viewCount );
+       
     });
 }
 
