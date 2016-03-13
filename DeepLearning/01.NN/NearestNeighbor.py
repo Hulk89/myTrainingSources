@@ -2,7 +2,7 @@
 import numpy as np
 from dataLoader import load_CIFAR
 
-testNum = 100 # Max : 10000
+testNum = 10 # Max : 10000
 
 class NearestNeighbor(object):
   def __init__(self):
@@ -27,27 +27,31 @@ class NearestNeighbor(object):
 
     # loop over all test rows
     for i in xrange(num_test):
-      # find the nearest training image to the i'th test image
-      # using the L1 distance (sum of absolute value differences)
-      # distances = np.sum(np.abs(self.Xtr - X[i,:]), axis = 1)
+      '''
+      L1 Norm
+      '''
+      #distances = np.sum(np.abs(self.Xtr - X[i,:]), axis = 1)
+      ''' 
+      L2 Norm
+      np.square는 element-wise. 
+      axis = 1 > 2번째 axis, 즉 column으로 sum한다.
+      '''
       distances = np.sqrt(np.sum(np.square(self.Xtr - X[i,:]), axis = 1))
-      min_index = np.argmin(distances) # get the index with smallest distance
-      Ypred[i] = self.ytr[min_index] # predict the label of the nearest example
-
+      min_index = np.argmin(distances) # 가장 작은 distance를 갖는 녀석의 인덱스를 가져옴
+      Ypred[i] = self.ytr[min_index] # 위에서 가져온 인덱스로 라벨을 가져옴
+ 
     return Ypred
 
 
 
 Xtr, Ytr, Xte, Yte, sLabels = load_CIFAR()
-Xtr_rows = Xtr.reshape(Xtr.shape[0], 32 * 32 * 3) # Xtr_rows becomes 50000 x 3072
-Xte_rows = Xte.reshape(Xte.shape[0], 32 * 32 * 3) # Xte_rows becomes 10000 x 3072
+Xtr_rows = Xtr.reshape(Xtr.shape[0], 32 * 32 * 3) # Xtr_rows는 50000 x 3072
+Xte_rows = Xte.reshape(Xte.shape[0], 32 * 32 * 3) # Xte_rows는 10000 x 3072
 
-nn = NearestNeighbor() # create a Nearest Neighbor classifier class
+nn = NearestNeighbor() 
 
-nn.train(Xtr_rows, Ytr) # train the classifier on the training images and labels
+nn.train(Xtr_rows, Ytr) 
 
-Yte_predict = nn.predict(Xte_rows[0:testNum]) # predict labels on the test images
-# and now print the classification accuracy, which is the average number
-# of examples that are correctly predicted (i.e. label matches)
+Yte_predict = nn.predict(Xte_rows[0:testNum])
 
 print 'accuracy: %f' % ( np.mean(Yte_predict == Yte[0:testNum]) )
