@@ -1,0 +1,7 @@
+Before start
+===========================
+brew install matplotlib
+sudo pip install pillow
+brew install scipy
+brew install numpy
+
