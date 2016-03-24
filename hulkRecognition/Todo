@@ -1,0 +1,21 @@
+Classifier
+* 목표
+	input  : Matric
+	output : ClassNum
+	
+* 리팩토링 포인트
+	Classifier에서 hulkSegInfo를 계속 본다. => 의존성 제거...
+		1. isRatioReasonable에서 mChar로 보고있음
+			=> hulkSegInfo에서 classNum을 보고 특별한 심볼은 빼주면 되는데 -의 경우 불가..
+		2. getMinDistance, isRatioReasonable에서 folder들을 둘러보아야함.
+			=> 폴더를 통해서 matrix정보를 미리 불러오면 의존성도 제거되고 성능도 빨라질 듯...(아직은 그닥 의미 없지만...)
+		
+		==> 1,2의 경우 hulkSegInfo만들 때에 이미 ratio정보, point정보를 만들고 그쪽에 위임하면 의존성이 제거된다.
+			=> hulkSegInfo에서 isRatioReasonable과 getMinDistance를 처리하면 의존성은 없어진다.
+			   성능상 좋아보이지 않는다... 일단 그냥 냅두자!( 미리 메모리에 올려두고 쓰는 것은 좋아보인다. 성능 딸린다 생각되면 저렇게 바꾸자! )
+
+전체적으로 dependency를 다시 관리해야할 것 같다...근데 파이썬 패키지, 모듈부터 좀 봐야지..
+
+** 띄어쓰기가 안되는군..... ( 0064 x^2 => 0064x^2 ) 욜케 나온다.. 이녀석 추가
+** 노이즈를 좀 크게 없앴더니 .도 없어지고 좀 더 잘나오는 것 같은데... 정량적 분석은 힘들다.
+** 트레이닝용 프로그램이 없다!! 나중에 트레이닝할 떄 만들자!
