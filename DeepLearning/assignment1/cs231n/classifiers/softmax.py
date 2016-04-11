@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*- 
+
 import numpy as np
 from random import shuffle
 
@@ -29,7 +31,22 @@ def softmax_loss_naive(W, X, y, reg):
   # here, it is easy to run into numeric instability. Don't forget the        #
   # regularization!                                                           #
   #############################################################################
-  pass
+  num_train = X.shape[0]
+  for i in xrange( num_train ):
+    score  = np.dot(X[i,:], W) # i에 대한 class의 score
+    score -= np.max(score)    # score의 max값을 빼준다 numerical stability
+    Li     = -score[y[i]] + np.log(np.sum(np.exp(score)))
+    loss  += Li
+    dW[:,y[i]] += -X[i,:].T
+
+    for j in xrange(W.shape[1]):
+        dW[:, j] += X[i,:].T * np.exp(score[j]) / np.sum( np.exp(score) )
+
+  loss /= num_train
+  dW   /= num_train
+
+  loss += 1/2 * reg * np.sum(W * W)
+  dW   += reg * W
   #############################################################################
   #                          END OF YOUR CODE                                 #
   #############################################################################
@@ -53,7 +70,37 @@ def softmax_loss_vectorized(W, X, y, reg):
   # here, it is easy to run into numeric instability. Don't forget the        #
   # regularization!                                                           #
   #############################################################################
-  pass
+  num_train = X.shape[0]
+  # score : [N x C]
+  #         i-th row - i번째 data에 대한 class score
+  score = np.dot(X, W)
+  score -= np.max(score)
+  # lossY : fy에 해당하는 vector [N x 1]
+  lossY = score[np.arange(score.shape[0]),y]
+  # expTerm : sum(e^fj) 에 해당하는 vector [N x 1]
+  expTerm = np.sum(np.exp(score), axis = 1)
+  # logTerm : log취한거 [N x 1]
+  logTerm = np.log(expTerm)
+  lossVector = logTerm - lossY
+  # loss
+  loss  += np.sum(lossVector)/num_train
+
+####### gradient ######
+  # lossY에 대한 gradient 계산
+  dLossY = np.zeros_like(score)
+  dLossY[np.arange(X.shape[0]), y] = 1
+  dW    -= np.dot(X.T, dLossY)
+
+  # exp term에 대한 gradient 계산
+  expX = X.T / expTerm
+  dW += np.dot(expX, np.exp(score))
+
+  dW /= num_train
+
+  # regularization term
+  loss += 1/2 * reg * np.sum(W * W)
+  dW   += reg * W
+
   #############################################################################
   #                          END OF YOUR CODE                                 #
   #############################################################################
