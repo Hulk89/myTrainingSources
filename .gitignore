@@ -27,6 +27,9 @@
 *.out
 *.app
 
+# python
+*.pyc
+
 node.js/node_modules
 node_modules
 
