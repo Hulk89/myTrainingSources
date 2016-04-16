@@ -74,11 +74,17 @@ class TwoLayerNet(object):
     # Store the result in the scores variable, which should be an array of      #
     # shape (N, C).                                                             #
     #############################################################################
-    pass
+    H_wob1 = np.dot(X, W1)
+    H1     = H_wob1 + b1
+    O1     = np.zeros_like( H1 )
+    O1[H1 > 0] = H1[H1>0]
+
+    H_wob2 = np.dot(O1, W2)
+    scores = H_wob2 + b2
     #############################################################################
     #                              END OF YOUR CODE                             #
     #############################################################################
-    
+
     # If the targets are not given then jump out, we're done
     if y is None:
       return scores
@@ -92,7 +98,15 @@ class TwoLayerNet(object):
     # classifier loss. So that your results match ours, multiply the            #
     # regularization loss by 0.5                                                #
     #############################################################################
-    pass
+    scores -= np.max(scores)
+
+    lossY   = scores[np.arange(N),y]
+    expTerm = np.sum(np.exp(scores), axis=1)
+    logTerm = np.log(expTerm)
+    lossVector = logTerm - lossY
+    loss       = np.sum(lossVector)/N
+
+    loss += 0.5 * reg * (np.sum(W1*W1) + np.sum(W2*W2))
     #############################################################################
     #                              END OF YOUR CODE                             #
     #############################################################################
@@ -104,7 +118,21 @@ class TwoLayerNet(object):
     # and biases. Store the results in the grads dictionary. For example,       #
     # grads['W1'] should store the gradient on W1, and be a matrix of same size #
     #############################################################################
-    pass
+    '''
+    dScores = 
+    # lossY에 대한 gradient 계산
+    dLossY = np.zeros_like(scores)
+    dLossY[np.arange(O1.shape[0]), y] = 1
+    dW2   -= np.dot(O1.T, dLossY)
+
+    # exp term에 대한 gradient 계산
+    expO1 = O1.T / expTerm
+    dW2 += np.dot(expO1, np.exp(scores))
+    dW2 /= N
+    # regularization term
+    dW2   += reg * W2
+    '''
+
     #############################################################################
     #                              END OF YOUR CODE                             #
     #############################################################################
