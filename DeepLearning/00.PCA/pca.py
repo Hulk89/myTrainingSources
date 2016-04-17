@@ -1,7 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.gridspec as gridspec
-
 
 pAxisScale = 5
 
@@ -25,7 +23,7 @@ print S
 
 DataRot = np.dot( Data0, U)
 
-
+DataO = np.dot( DataRot, U.T)
 # plot the data
 # http://www.scipy-lectures.org/intro/matplotlib/matplotlib.html
 
@@ -76,8 +74,6 @@ ax.spines['left'].set_position(('data',0))
 plt.plot( DataRot[:,0],DataRot[:,1], 'go' )
 plt.axis([-pAxisScale,pAxisScale,-pAxisScale,pAxisScale])
 plt.title('PCA data')
-
-
 
 
 # plot final figure

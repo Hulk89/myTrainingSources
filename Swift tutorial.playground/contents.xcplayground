@@ -1,8 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='ios' auto-termination-delay='5' display-mode='raw' executeOnSourceChanges='false' timelineScrubberEnabled='true'>
-    <pages>
-        <page name='01.Introduction'/>
-        <page name='02.UIKit'/>
-        <page name='03.View'/>
-    </pages>
-</playground>
+<playground version='6.0' target-platform='ios' auto-termination-delay='5' display-mode='raw' executeOnSourceChanges='false' timelineScrubberEnabled='true'/>
