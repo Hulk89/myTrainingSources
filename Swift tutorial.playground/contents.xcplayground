@@ -11,5 +11,6 @@
         <page name='07.class'/>
         <page name='08.Inheritance'/>
         <page name='09.Extensions'/>
+        <page name='10.Error handling'/>
     </pages>
 </playground>
