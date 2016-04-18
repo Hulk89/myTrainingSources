@@ -14,7 +14,7 @@ container.addSubview(square)
 
 UIView.animateWithDuration(5.0, animations: {
     square.backgroundColor = UIColor.blueColor()
-    let rotation = CGAffineTransformMakeRotation(3.14)
+    let rotation = CGAffineTransformMakeRotation(3.14/2)
     square.transform = rotation
     
 })

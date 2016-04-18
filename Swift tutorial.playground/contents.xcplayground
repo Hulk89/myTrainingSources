@@ -1,2 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='ios' auto-termination-delay='5' display-mode='raw' executeOnSourceChanges='false' timelineScrubberEnabled='true'/>
+<playground version='6.0' target-platform='ios' auto-termination-delay='5' display-mode='raw' executeOnSourceChanges='false' timelineScrubberEnabled='true'>
+    <pages>
+        <page name='01.Introduction'/>
+        <page name='02.UIKit'/>
+        <page name='03.View'/>
+        <page name='04-1.Swift Types'/>
+        <page name='04-2.Collection Types'/>
+        <page name='05.Switch case'/>
+        <page name='06.Functions'/>
+        <page name='07.class'/>
+    </pages>
+</playground>
