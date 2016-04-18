@@ -14,6 +14,17 @@ class BankAccount {
     var accountBalance: Float = 0
     var accountNumber: Int = 0
     
+    let fee : Float = 25
+    
+    var balanceAfterFee : Float { //이런 식으로 getter setter를 만들어 쓸 수 있음...
+        get {
+            return accountBalance - fee
+        }
+        set( newBalance ) {
+            accountBalance - fee
+        }
+    }
+    
     init(number: Int, balance: Float) // initializer
     {
         accountNumber = number
@@ -27,7 +38,7 @@ class BankAccount {
     }
     deinit                          //deinitialize method
     {
-        
+        print("Deinitialize")
     }
     func displayBalance()
     {
@@ -44,5 +55,6 @@ class BankAccount {
 var account1 = BankAccount(number: 12312312, balance: 400.54)
 var account2 = BankAccount()
 BankAccount.getMaxBalance()
+account1.balanceAfterFee
 
 //: [Next](@next)

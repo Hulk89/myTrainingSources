@@ -41,5 +41,6 @@ func arithmeticMean(numbers: Double...) -> Double {
 arithmeticMean(1, 2, 3, 4, 5)
 arithmeticMean(3, 8.25, 18.75)
 
+myVar
 
 //: [Next](@next)
