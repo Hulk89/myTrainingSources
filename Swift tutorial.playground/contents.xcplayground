@@ -9,5 +9,6 @@
         <page name='05.Switch case'/>
         <page name='06.Functions'/>
         <page name='07.class'/>
+        <page name='08.Inheritance'/>
     </pages>
 </playground>
