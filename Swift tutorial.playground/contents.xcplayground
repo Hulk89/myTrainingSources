@@ -12,5 +12,6 @@
         <page name='08.Inheritance'/>
         <page name='09.Extensions'/>
         <page name='10.Error handling'/>
+        <page name='11.Parallel processing'/>
     </pages>
 </playground>
